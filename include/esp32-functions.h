@@ -1,5 +1,8 @@
 #pragma once
 
-bool read_button(int button_pin);
-void set_outputs(int out1, int out2);
-void reset_outputs(int out1, int out2);
+// función para leer un botón
+bool read_button(int button);
+
+// funciones para manejar las salidas
+void set_output(int out1, int out2);
+void reset_output(int out1, int out2);

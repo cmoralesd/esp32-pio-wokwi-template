@@ -3,20 +3,19 @@
 #include "esp32-functions.h"
 
 void setup() {
-  // put your setup code here, to run once:
+  // inicialización
+  esp32_serial_setup(115200);
   esp32_io_setup();
-  Serial.begin(115200);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  bool btn_state = read_button(BUTTON);
-
-  if (btn_state){
-    set_outputs(LED1, LED2);
+  // ciclo principal:
+  if (read_button(BUTTON)){
+    reset_output(LED1, LED2);
     Serial.println("button OFF");
   }else{
-    reset_outputs(LED1, LED2);
+    set_output(LED1, LED2);
     Serial.println("button ON");
   }
 }
+
